@@ -1,0 +1,53 @@
+<br>
+<h4>Product List</h4>
+<table class="table table-bordered table-striped">
+  <thead class="table-info">
+    <tr>
+      <th>Category with Products</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(item of list; track $index){
+      <tr>
+        <td>
+          <b>Category Name:</b> {{item.name}} 
+          <div *ngIf="item.products.length>0">
+            <br>
+            <table class="table table-bordered table-striped"> 
+              <thead class="table-info">
+                <tr>
+                  <th>Name</th>
+                  <th>Product Number</th>
+                  <th>Color</th>
+                  <th>Standard Cost</th>
+                  <th>List Price</th>
+                  <th>Size</th>
+                  <th>Weight</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for(p of item.products; track $index){
+                  <tr>
+                    <td>{{p.name}}</td>
+                    <td>{{p.productNumber}}</td>
+                    <td>{{p.color}}</td>
+                    <td>{{p.standardCost}}</td>
+                    <td>{{p.listPrice}}</td>
+                    <td>{{p.size}}</td>
+                    <td>{{p.weight}}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </td>
+        <td>
+          <a [routerLink]="['/addproduct', 'edit', item.productCategoryID]" class="btn btn-success">Edit</a> | 
+
+          <button type="button" (click)="onDelete(item)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

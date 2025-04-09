@@ -1,0 +1,135 @@
+<br>
+<h4>Edit Product</h4>
+
+<div class="row">
+  <div class="col-3">
+    <label>Name</label>
+    <input
+      type="text"
+      name="name"
+      class="form-control"
+      [(ngModel)]="productObject.name"
+    />
+  </div>
+
+  <div class="col-3">
+    <label>Product Number</label>
+    <input
+      type="text"
+      name="productNumber"
+      class="form-control"
+      [(ngModel)]="productObject.productNumber"
+    />
+  </div>
+
+  <div class="col-3">
+    <label>Color</label>
+    <input
+      type="text"
+      name="color"
+      class="form-control"
+      [(ngModel)]="productObject.color"
+    />
+  </div>
+
+  <div class="col-3">
+    <label>Size</label>
+    <input
+      type="number"
+      name="size"
+      class="form-control"
+      [(ngModel)]="productObject.size"
+    />
+  </div>
+
+  <div class="col-3">
+    <label>Standard Cost</label>
+    <input
+      type="number"
+      name="standardCost"
+      class="form-control"
+      [(ngModel)]="productObject.standardCost"
+    />
+  </div>
+
+  <div class="col-3">
+    <label>List Price</label>
+    <input
+      type="number"
+      name="listPrice"
+      class="form-control"
+      [(ngModel)]="productObject.listPrice"
+    />
+  </div>
+
+  <div class="col-3">
+    <label>Weight</label>
+    <input
+      type="number"
+      name="weight"
+      class="form-control"
+      [(ngModel)]="productObject.weight"
+    />
+  </div>
+
+  <div class="col-3 mt-4">
+    <button type="button" class="btn btn-success" (click)="addProduct()">
+      Add Product
+    </button>
+  </div>
+</div>
+
+<br />
+
+<h6>Product List</h6>
+<table class="table table-bordered table-striped">
+  <thead class="table-info">
+    <tr *ngIf="productList.length > 0">
+      <th>Name</th>
+      <th>Product Number</th>
+      <th>Color</th>
+      <th>Standard Cost</th>
+      <th>List Price</th>
+      <th>Size</th>
+      <th>Weight</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of productList">
+      <td>{{ p.name }}</td>
+      <td>{{ p.productNumber }}</td>
+      <td>{{ p.color }}</td>
+      <td>{{ p.standardCost }}</td>
+      <td>{{ p.listPrice }}</td>
+      <td>{{ p.size }}</td>
+      <td>{{ p.weight }}</td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="deleteProduct(p, productList)"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="row">
+  <div class="col-6">
+    <input
+      type="text"
+      name="category"
+      class="form-control"
+      [(ngModel)]="productCateObj.name"
+      placeholder="Enter Product Category"
+    />
+  </div>
+  <div class="col-4">
+    <button type="submit" class="btn btn-primary" (click)="updateCategory()">
+      Update Product
+    </button>
+  </div>
+</div>
